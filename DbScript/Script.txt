@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold --force "Server=BULBUL-509694;Database=CRM;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models --context-dir DbContexts -c "Context"
