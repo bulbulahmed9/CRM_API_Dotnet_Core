@@ -8,7 +8,7 @@ public class PriceDTO
 }
 
 [ApiController]
-[Route("[controller]")]
+[Route("crm/[controller]")]
 public class AccountController : ControllerBase
 {
     private readonly IAccount _IAccount;

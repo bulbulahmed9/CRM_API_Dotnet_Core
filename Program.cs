@@ -18,12 +18,19 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder => DependencyContainer
 
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger(c =>
+    {
+        c.RouteTemplate = "crm/swagger/{documentName}/swagger.json";
+    });
+
+    //specifying the Swagger JSON endpoint.
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/crm/swagger/v1/swagger.json", "crm");
+        c.RoutePrefix = "crm/swagger";
+    });
 }
 
 // app.UseHttpsRedirection();
