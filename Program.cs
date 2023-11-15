@@ -1,5 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using SME.ErrorHandling;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,8 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = "crm/swagger";
     });
 }
+
+app.ConfigureCustomExceptionMiddleware();
 
 // app.UseHttpsRedirection();
 

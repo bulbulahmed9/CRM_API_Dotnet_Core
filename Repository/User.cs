@@ -21,14 +21,10 @@ public class User : IUser
     {
         try
         {
-            // if(string.IsNullOrEmpty(obj.Email) || string.IsNullOrEmpty(obj.Password))
-            // {
-            //     return new MessageHelper()
-            //     {
-            //         StatusCode = 400,
-            //         Message = "Please enter your email address"
-            //     };
-            // }
+            if(string.IsNullOrEmpty(obj.Email) || string.IsNullOrEmpty(obj.Password))
+            {
+                throw new Exception("Invalid Input");
+            }
             return default;
         }
         catch (System.Exception)
